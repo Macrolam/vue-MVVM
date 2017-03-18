@@ -11,6 +11,7 @@
         class="isFin" type="checkbox">{{item.con}}
       </li>
     </ul>
+    <button id="btn" v-on:click="removeTask" v-if='btnFlagShow()'>clear</button>
   </div>
 </template>
 
@@ -19,10 +20,11 @@
   export default {
     data: function () {
       return {
-      title: 'This is a Macrolam  ToDoList demo',
-      items: storeJs.fetch()
-    }
-      ;
+        title: 'This is a Macrolam  ToDoList demo',
+        newTask: '',
+        items: storeJs.fetch()
+      }
+        ;
     },
     watch: {
       items: {
@@ -41,6 +43,17 @@
         if (this.newTask !== '') {
           this.items.push({con: this.newTask, isFin: false});
           this.newTask = '';
+        }
+      },
+      removeTask: function () {
+        storeJs.remove();
+        this.items = storeJs.fetch();
+      },
+      btnFlagShow: function () {
+        if (this.items.length !== 0) {
+          return true;
+        } else {
+          return false;
         }
       }
     }
@@ -136,5 +149,16 @@
     text-decoration: line-through;
     color: #000;
     font-weight: bold;
+  }
+
+  #btn {
+    float: right;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #2b2b2b;
+    font-weight: bold;
+    border-radius: 4px;
+    line-height: 25px;
+    width: 80px;
   }
 </style>
