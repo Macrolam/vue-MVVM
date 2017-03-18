@@ -15,22 +15,23 @@
 </template>
 
 <script>
+  import storeJs from './localStorage.js';
   export default {
     data: function () {
       return {
-        title: 'This is a Macrolam  ToDoList demo',
-        items: [
-          {
-            con: 'codding',
-            isFin: true
-          },
-          {
-            con: 'runing',
-            isFin: false
-          }
-
-        ]
-      };
+      title: 'This is a Macrolam  ToDoList demo',
+      items: storeJs.fetch()
+    }
+      ;
+    },
+    watch: {
+      items: {
+        handler: function (newval) {
+          // console.log(newval, oldval);
+          storeJs.save(newval);
+        }
+      },
+      deep: true
     },
     methods: {
       toggleFin: function (res) {
