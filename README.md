@@ -1,6 +1,7 @@
 # todo list
 
 > this is todolist and use vue
+这个是一个很好的体验vueMVVM设计模式的小demo，同时涉及h5的本地存储，很适合初学的亲。
 
 ## Build Setup
 
