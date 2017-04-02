@@ -45,18 +45,7 @@
           this.newTask = '';
         }
       },
-      removeTask: function () {
-        storeJs.remove();
-        this.items = storeJs.fetch();
-      },
-      btnFlagShow: function () {
-        if (this.items.length !== 0) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
+
   };
 
 </script>
