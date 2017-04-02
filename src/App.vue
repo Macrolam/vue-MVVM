@@ -49,11 +49,7 @@
       },
       btnFlagShow: function () {
         if (this.items.length !== 0) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+
     }
   };
 
