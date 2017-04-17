@@ -36,28 +36,12 @@
       deep: true
     },
     methods: {
-      toggleFin: function (res) {
-        res.isFin = !res.isFin;
-      },
+
       addNewTask: function () {
         if (this.newTask !== '') {
           this.items.push({con: this.newTask, isFin: false});
           this.newTask = '';
         }
-      },
-      removeTask: function () {
-        storeJs.remove();
-        this.items = storeJs.fetch();
-      },
-      btnFlagShow: function () {
-        if (this.items.length !== 0) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
-  };
 
 </script>
 
